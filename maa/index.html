@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Mother's Day Mumma</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Rozha+One&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--pink:#ff1493;
+--soft:#ffb6c1;
+--bg:#fff9fb;
+}
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:var(--bg);
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+height:70vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(#ffffff,var(--soft));
+}
+
+.main-title{
+font-family:'Rozha One',serif;
+font-size:4rem;
+color:var(--pink);
+}
+
+.subtitle{
+font-family:'Dancing Script',cursive;
+font-size:2rem;
+color:#444;
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:#ff1493;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* GALLERY */
+
+.gallery{
+max-width:1200px;
+margin:auto;
+padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+.polaroid{
+background:white;
+padding:15px 15px 60px;
+border-radius:10px;
+box-shadow:0 15px 35px rgba(255,20,147,0.15);
+transition:0.4s;
+}
+
+.polaroid:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 25px 50px rgba(255,20,147,0.3);
+}
+
+.polaroid img{
+width:100%;
+height:420px;
+object-fit:cover;
+border-radius:5px;
+}
+
+.caption{
+font-family:'Dancing Script',cursive;
+font-size:1.8rem;
+text-align:center;
+margin-top:15px;
+color:var(--pink);
+}
+
+/* QUOTES */
+
+.quote-section{
+padding:40px;
+}
+
+.card{
+background:white;
+max-width:700px;
+margin:30px auto;
+padding:40px;
+border-radius:30px;
+border-left:10px solid var(--pink);
+box-shadow:10px 10px 0 var(--soft);
+text-align:center;
+font-size:1.6rem;
+}
+
+/* FOOTER */
+
+footer{
+padding:80px 20px;
+text-align:center;
+font-family:'Dancing Script',cursive;
+font-size:2.5rem;
+color:var(--pink);
+}
+
+/* FALLING HEARTS */
+
+.fall{
+position:fixed;
+top:-10px;
+font-size:24px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+
+<audio id="song">
+<source src="maa.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="playMusic()">🎵 Play Song</button>
+
+<header>
+
+<h1 class="main-title">मेरी प्यारी माँ</h1>
+<p class="subtitle">Happy Mother's Day Mumma ❤️</p>
+
+</header>
+
+<!-- PHOTO GALLERY -->
+
+<div class="gallery">
+
+<div class="polaroid">
+<img src="image.png">
+<div class="caption">माँ की मुस्कान 🌸</div>
+</div>
+
+<div class="polaroid">
+<img src="image copy 2.png">
+<div class="caption">पुरानी यादें ✨</div>
+</div>
+
+<div class="polaroid">
+<img src="WhatsApp Image 2026-05-10 at 7.00.43 PM.jpeg">
+<div class="caption">सदा साथ ❤️</div>
+</div>
+
+<div class="polaroid">
+<img src="WhatsApp Image 2026-05-10 at 7.25.54 PM.jpeg">
+<div class="caption">परिवार का प्यार 🏠</div>
+</div>
+
+<div class="polaroid">
+<img src="1.png">
+<div class="caption">खुशियों के पल ✨</div>
+</div>
+
+</div>
+
+<!-- QUOTES -->
+
+<div class="quote-section">
+
+<div class="card">
+माँ की ममता का कोई मोल नहीं,<br>
+इस दुनिया में माँ जैसा कोई अनमोल नहीं।
+</div>
+
+<div class="card">
+भगवान हर जगह नहीं हो सकते थे,<br>
+इसलिए उन्होंने माँ को बनाया।
+</div>
+
+</div>
+
+<footer>
+Love You Always Mumma ❤️
+</footer>
+
+<script>
+
+/* PLAY SONG */
+
+function playMusic(){
+document.getElementById("song").play()
+}
+
+/* FALLING FLOWERS */
+
+const emojis=["🌸","❤️","💖","🌺","🌷","✨"]
+
+function create(){
+
+const el=document.createElement("div")
+
+el.className="fall"
+
+el.innerText=emojis[Math.floor(Math.random()*emojis.length)]
+
+el.style.left=Math.random()*100+"vw"
+
+el.style.animationDuration=(4+Math.random()*3)+"s"
+
+document.body.appendChild(el)
+
+setTimeout(()=>{el.remove()},7000)
+
+}
+
+setInterval(create,300)
+
+</script>
+
+</body>
+</html>

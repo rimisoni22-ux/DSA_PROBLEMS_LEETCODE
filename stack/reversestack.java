@@ -1,0 +1,47 @@
+package stack;
+
+import java.util.Stack;
+
+public class reversestack {
+
+    public static void pushAtBottom(Stack<Integer> s, int data) { // this function is used to push an element at the bottom of the stack
+        if (s.isEmpty()) { // if the stack is empty, then push the element and return
+            s.push(data);
+            return;
+        }
+
+        int top = s.pop();
+        pushAtBottom(s, data);
+        s.push(top);
+    }
+
+    public static void revStack(Stack<Integer> s) {
+        if (s.isEmpty()) { 
+            return;
+        }
+
+        int top = s.pop();
+        revStack(s);
+        pushAtBottom(s, top);
+    }
+
+    public static void printStack(Stack<Integer> s) {
+        while (!s.isEmpty()) {
+            System.out.println(s.pop());
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+
+        s.push(1);
+        s.push(2);
+        s.push(3);
+
+        // 3 2 1
+        revStack(s);
+
+        // 1 2 3
+        printStack(s);
+    }
+}

@@ -1,0 +1,128 @@
+
+public class practice {
+
+    public static int linear(int key, int nums[]) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == key) {
+                return i;
+            }
+
+        }
+        return -1;
+
+    }
+
+    public static void main(String[] args) {
+        // linear search  
+        int nums[] = {2, 4, 5, 7, 8};
+        int key = 8;
+        int index = linear(key, nums);
+        if (index == -1) {
+            System.out.println("not found");
+        } else {
+            System.out.println(" key found at index  " + index);
+
+        }
+
+    }
+
+}
+// largest element 
+//method-1
+1.consider largset = -infinity smallest = +infinity
+2.compare largest with nums[i] if largest<nums[i]  nums[i] = largest 
+3.compare smllest with nums[i] if smallest>nums[i]
+4.return largest 
+5.print smallest
+
+
+public class arrlargest {
+
+    public static int getLargest(int numbers[]) {
+        int largest = Integer.MIN_VALUE; // -infinity
+        int smallest = Integer.MAX_VALUE; // +infinity
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (largest < numbers[i]) {
+                largest = numbers[i];
+            }
+            if (smallest > numbers[i]) {
+                smallest = numbers[i];
+            }
+        }
+        System.out.println("smallest value is : " + smallest);
+        return largest;
+    }
+
+    public static void main(String[] args) {
+        int numbers[] = {1, 2, 6, 3, 5};
+        System.out.println("largest value is : " + getLargest(numbers));
+       
+         
+    }
+} 
+
+//method-2
+array sort and find first and last element
+ import java.util.Arrays;
+public class arrlargest {
+
+
+
+    public static void main(String[] args) {
+        int nums[] = {1, 2, 6, 3, 5};
+        int n =nums.length;
+        Arrays.sort(nums);
+        int smallest = nums[0];
+        int largest = nums[n-1];
+         System.out.println("smallest is "+smallest);
+                  System.out.println("largest is "+largest);
+
+       
+         
+    }
+}
+//BINARY SEARCH 
+1.lo = 0 index
+2.hi=last index
+3.find mid 
+4.compare it 
+import java.util.Arrays;
+
+public class Binary_search {
+    public static int binary(int nums[], int key) {
+        int lo = 0;
+        int hi = nums.length - 1;
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+
+            if (nums[mid] == key) {
+                return mid;
+            }
+            else if (nums[mid] < key) {
+                lo = mid + 1;
+            }
+            else {
+                hi = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int nums[] = {1, 2, 6, 3, 5, 4, 7, 10};
+        // Binary search needs sorted array
+        Arrays.sort(nums);
+        int key = 5;
+        int result = binary(nums, key);
+        if (result != -1) {
+            System.out.println("Element found at index : " + result);
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+}
+
+// 
+
